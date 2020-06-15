@@ -24,7 +24,7 @@ The MiSTer Update Suite will give you a nice User Experience as well as an Auto 
 * This Script will still use the your existing INI Files that may have already
 * If you do not have the optional INI files already this Script will download the default INI Files for you if case you'd like to make adjustments
 * The INI Files will control aspects for the Scripts that are being downloaded and run from the Suite
-* For the Official and LLAPI Cores you may need to visit their GitHub pages to create your own customized <b><update.ini/b> and <b>update_llapi.ini</b> files if needed
+* For the Official and LLAPI Cores you may need to visit their GitHub pages to create your own customized <b><update.ini</b> and <b>update_llapi.ini</b> files if needed
 
 ## Credits ##
 * <a href="https://github.com/MiSTer-devel/Main_MiSTer/wiki">Sorgelig</a>
