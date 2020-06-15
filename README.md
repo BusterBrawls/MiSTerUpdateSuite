@@ -15,7 +15,7 @@ The MiSTer Update Suite will give you a nice User Experience as well as an Auto 
 ![image](https://github.com/RetroDriven/MiSTerUpdateSuite/blob/master/DO%20NOT%20DOWNLOAD/Screenshot.png)
 
 ## Included Scripts ##
-1. <a href="https://github.com/RetroDriven/MiSTerMAME">RetroDriven MiSTerMAME</a> - This Script will Download/Update the required MAME ROMS as well Unofficial RBF Cores and MRA Files
+1. <a href="https://github.com/RetroDriven/MiSTerMAME">RetroDriven MiSTerMAME</a> - This Script will Download/Update the required MAME ROMS as well Unofficial RBF Cores and MRA Files such as Jotego's Cores/MRAs
 2. <a href="https://github.com/RetroDriven/MiSTerWallpapers">RetroDriven MiSTerWallpapers</a> - This Script will Download/Update Wallpaper Artwork to be used on the MiSTer Menu
 3. <a href="https://github.com/MiSTer-devel/Updater_script_MiSTer">Official MiSTer Updater</a> - This Script will Download/Update Official Cores, MRA Files, MiSTer Main, Menu, etc.
 4. <a href="https://github.com/MiSTer-LLAPI/Updater_script_MiSTer">LLAPI Updater</a> - This Scripts will Download/Updated the LLAPI Cores for use with BlisSTer and LLAMA
