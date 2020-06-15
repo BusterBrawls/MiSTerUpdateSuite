@@ -1,5 +1,5 @@
 # MiSTer Update Suite
-This is a User Friendly GUI/Menu based Updater that will aid in Downloading/Updating your MiSTer very quickly and easily!
+This is a User Friendly GUI/Menu based Updater that will aid in Downloading/Updating/Maintaining your MiSTer very quickly and easily!
 
 The MiSTer Update Suite will give you a nice User Experience as well as an Auto Pilot Mode so that you can run Mutiple Scripts instead of Manually running them on your own. You can still run all of the Scripts included manually via the MiSTer Script Menu if you'd like to as the Scripts used here have not been altered or changed in functionality.
 
