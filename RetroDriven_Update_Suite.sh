@@ -18,22 +18,11 @@
 # You can download the latest version of this script from:
 # https://github.com/RetroDriven/MiSTerUpdateSuite
 
-: '
-###### Disclaimer / Legal Information ######
-By downloading and using this Script you are agreeing to the following:
-
-* You are responsible for checking your local laws regarding the use of the ROMs that this Script downloads.
-* You are authorized/licensed to own/use the ROMs associated with this Script.
-* You will not distribute any of these files without the appropriate permissions.
-* You own the original Arcade PCB for each ROM file that you download.
-* I take no responsibility for any data loss or anything, use the script at your own risk.
-'
-
 # RetroDriven v1.0 - Changed Script as needed
 
 # ========= OPTIONS ==================
 URL="https://github.com"
-SCRIPT_URL="${URL}/RetroDriven/MiSTerUpdateSuite/blob/master/DO NOT DOWNLOAD/RetroDriven_Suite_Updater.sh"
+SCRIPT_URL="${URL}/RetroDriven/MiSTerUpdateSuite/blob/master/DO%20NOT%20DOWNLOAD/RetroDriven_Suite_Updater.sh"
 CURL_RETRY="--connect-timeout 15 --max-time 120 --retry 3 --retry-delay 5 --silent"
 
 # ========= ADVANCED OPTIONS =========
