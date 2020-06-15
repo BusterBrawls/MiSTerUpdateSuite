@@ -16,7 +16,7 @@
 # Copyright 2019 Alessandro "Locutus73" Miele
 
 # You can download the latest version of this script from:
-# https://github.com/RetroDriven/MiSTerMAME
+# https://github.com/RetroDriven/MiSTerUpdateSuite
 
 : '
 ###### Disclaimer / Legal Information ######
@@ -88,7 +88,7 @@ case $? in
 		;;
 esac
 
-# download and execute the latest mister_updater.sh
+# download and execute the latest Script
 echo "Downloading and executing"
 echo "${SCRIPT_URL/*\//}"
 echo ""
