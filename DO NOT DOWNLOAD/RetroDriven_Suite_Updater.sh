@@ -16,6 +16,9 @@
 # Copyright 2019-2020 Alessandro "Locutus73" Miele
 # Copyright 2020 RetroDriven
 
+# v1.1 - Moved Wallpapers to Optional Section
+#		 Added Auto Pilot Mode Section
+#		 Added Option to Run All Scripts to Auto Pilot Mode Section
 # v1.0 - Initial Script Release
 
 # ========= CODE STARTS HERE =========
@@ -285,12 +288,25 @@ function Update_All {
 	#Run All Scripts
 	MiSTerMAME
 	MiSTerWallpapers
+	Update_LLAPI
 	Update_Official
+}
 
+function Update_All_Essential {
+
+	MiSTerMAME
+	Update_Official
+}
+
+function Update_All_Optional {
+
+	MiSTerWallpapers
+	Update_LLAPI
+	
 }
 
 #Menu Options
-DIALOG_TITLE="RetroDriven MiSTer Update Suite v1.0"
+DIALOG_TITLE="RetroDriven MiSTer Update Suite v1.1"
 function showPleaseWAIT {
 	${DIALOG} --title "${DIALOG_TITLE}" \
 	--infobox "Please wait..." 0 0
@@ -301,13 +317,16 @@ function showMainMENU {
 	${DIALOG} --clear --no-tags --item-help --ok-label "Select" \
 		--title "${DIALOG_TITLE}" \
 		--menu "Please Adjust your INI Files as needed before running these Scripts." ${DIALOG_HEIGHT} 0 999 \
-		"updateALL" "RUN ALL ESSENTIAL SCRIPTS (Auto Pilot Mode)" "" \
-		"" "===== Essential Scripts (Manual Mode) =====" "" \
+		"" "===== Essential Scripts =====" "" \
+		"updateAllEssential" "RUN ALL Essential Scripts (Auto Pilot Mode)" "" \
 		"updateMM" "RetroDriven MiSTerMAME SE Updater" "" \
-		"updateMW" "RetroDriven MiSTerWallpapers Updater" "" \
 		"updateOfficial" "Official MiSTer Updater" "" \
 		"" "===== Optional Scripts =====" "" \
+		"updateAllOptional" "RUN ALL Optional Scripts (Auto Pilot Mode)" "" \
+		"updateMW" "RetroDriven MiSTerWallpapers Updater" "" \
 		"updateLLAPI" "MiSTer LLAPI Updater" "" \
+		"" "===== Auto Pilot Mode =====" "" \
+		"updateAll" "Run Essential + Optional Scripts (Auto Pilot All Scripts)" "" \
 		2> ${DIALOG_TEMPFILE}
 	readDIALOGtempfile
 }
@@ -330,9 +349,17 @@ while true; do
 					clear
 					MiSTerWallpapers
 					;;
-				updateALL)
+				updateAll)
 					clear
 					Update_All
+					;;
+				updateAllEssential)
+					clear
+					Update_All_Essential
+					;;
+				updateAllOptional)
+					clear
+					Update_All_Optional
 					;;
 				updateOfficial)
 					clear
