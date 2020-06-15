@@ -313,7 +313,7 @@ function showMainMENU {
 }
 
 clear
-checkTERMINAL
+#checkTERMINAL
 setupINI
 setupDIALOG
 
