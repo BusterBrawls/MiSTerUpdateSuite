@@ -16,10 +16,8 @@
 # Copyright 2019-2020 Alessandro "Locutus73" Miele
 # Copyright 2020 RetroDriven
 
-# v1.1 - Moved Wallpapers to Optional Section
-#		 Added Auto Pilot Mode Section
-#		 Added Option to Run All Scripts to Auto Pilot Mode Section
-# v1.0 - Initial Script Release
+# Version 1.1 - 06/15/2020 - Moved Wallpapers to Optional Section; Added Auto Pilot Mode Section ;Added Option to Run All Scripts to Auto Pilot Mode Section
+# Version 1.0 - 06/14/2020 - Initial Script Release
 
 # ========= CODE STARTS HERE =========
 
@@ -60,7 +58,7 @@ function setupINI {
 function setupCURL
 {
 	[ ! -z "${CURL}" ] && return
-	CURL_RETRY="--connect-timeout 15 --max-time 120 --retry 3 --retry-delay 5"
+	CURL_RETRY="--connect-timeout 15 --max-time 180 --retry 3 --retry-delay 5"
 	# test network and https by pinging the most available website 
 	SSL_SECURITY_OPTION=""
 	curl ${CURL_RETRY} --silent https://github.com > /dev/null 2>&1
