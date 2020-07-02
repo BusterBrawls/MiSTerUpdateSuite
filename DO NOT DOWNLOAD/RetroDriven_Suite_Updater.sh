@@ -16,6 +16,7 @@
 # Copyright 2019-2020 Alessandro "Locutus73" Miele
 # Copyright 2020 RetroDriven
 
+# Version 1.2 - 07/01/2020 - Added MiSTerBIOS Script to Optional Section
 # Version 1.1 - 06/15/2020 - Moved Wallpapers to Optional Section; Added Auto Pilot Mode Section ;Added Option to Run All Scripts to Auto Pilot Mode Section
 # Version 1.0 - 06/14/2020 - Initial Script Release
 
@@ -52,6 +53,12 @@ function setupINI {
 	if [ ! -f "Update_RetroDriven_MAME_SE.ini" ];then
 	curl -sL --insecure "https://github.com/RetroDriven/MiSTerMAME/blob/master/Update_RetroDriven_MAME_SE.ini?raw=true" --output "Update_RetroDriven_MAME_SE.ini"
 	[ ! -f "Update_RetroDriven_MAME_SE.ini" ] && echo "Error Downloading RetroDriven_MAME_SE INI" && exit 1
+	fi
+
+	#MiSTerBIOS INI
+	if [ ! -f "Update_MiSTerBIOS.ini" ];then
+	curl -sL --insecure "https://github.com/RetroDriven/MiSTerBIOS/blob/master/Update_MiSTerBIOS.ini?raw=true" --output "Update_MiSTerBIOS.ini"
+	[ ! -f "Update_MiSTerBIOS.ini" ] && echo "Error Downloading MiSTerBIOS INI" && exit 1
 	fi
 }
 
@@ -212,6 +219,29 @@ function MiSTerWallpapers {
 	clear
 }
 
+function MiSTerBIOS {
+	#Check to see if INI file exists
+	if [ ! -f "Update_MiSTerBIOS.ini" ];then
+
+	echo "Downloading MiSTerBIOS INI"
+	curl -sL --insecure "https://github.com/RetroDriven/MiSTerBIOS/blob/master/Update_MiSTerBIOS.ini?raw=true" --output "Update_MiSTerBIOS.ini"
+	[ ! -f "Update_MiSTerBIOS.ini" ] && echo "Error Downloading MiSTerBIOS INI" && exit 1
+	fi
+
+	#Check to see if BIOS Script file exists
+	if [ ! -f "Update_MiSTerBIOS.sh" ];then
+
+	echo "Downloading MiSTerBIOS Script"
+	curl -sL --insecure "https://github.com/RetroDriven/MiSTerBIOS/blob/master/Update_MiSTerBIOS.sh?raw=true" --output "Update_MiSTerBIOS.sh"
+	[ ! -f "Update_MiSTerBIOS.sh" ] && echo "Error Downloading MiSTerBIOS Script" && exit 1
+	fi
+	
+	#Run BIOS Script
+	./Update_MiSTerBIOS.sh
+	sleep 3
+	clear
+}
+
 function MiSTerMAME {
 	#Check to see if INI file exists
 	if [ ! -f "Update_RetroDriven_MAME_SE.ini" ];then
@@ -286,6 +316,7 @@ function Update_All {
 	#Run All Scripts
 	MiSTerMAME
 	MiSTerWallpapers
+	MiSTerBIOS
 	Update_LLAPI
 	Update_Official
 }
@@ -299,12 +330,13 @@ function Update_All_Essential {
 function Update_All_Optional {
 
 	MiSTerWallpapers
+	MiSTerBIOS
 	Update_LLAPI
 	
 }
 
 #Menu Options
-DIALOG_TITLE="RetroDriven MiSTer Update Suite v1.1"
+DIALOG_TITLE="RetroDriven MiSTer Update Suite v1.2"
 function showPleaseWAIT {
 	${DIALOG} --title "${DIALOG_TITLE}" \
 	--infobox "Please wait..." 0 0
@@ -322,6 +354,7 @@ function showMainMENU {
 		"" "===== Optional Scripts =====" "" \
 		"updateAllOptional" "RUN ALL Optional Scripts (Auto Pilot Mode)" "" \
 		"updateMW" "RetroDriven MiSTerWallpapers Updater" "" \
+		"updateMB" "RetroDriven MiSTerBIOS Updater" "" \
 		"updateLLAPI" "MiSTer LLAPI Updater" "" \
 		"" "===== Auto Pilot Mode =====" "" \
 		"updateAll" "Run Essential + Optional Scripts (Auto Pilot All Scripts)" "" \
@@ -346,6 +379,10 @@ while true; do
 				updateMW)
 					clear
 					MiSTerWallpapers
+					;;
+				updateMB)
+					clear
+					MiSTerBIOS
 					;;
 				updateAll)
 					clear
