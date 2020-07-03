@@ -482,7 +482,7 @@ fi
 if [ $SHOW_GUI == "False" ];then
 
 Footer
-echo "Downloaded Log Files are located here: $LOGS_PATH"
+echo "Downloaded Log Files are located here: /media/fat/Scripts/.RetroDriven/Logs"
 echo
 fi
 
