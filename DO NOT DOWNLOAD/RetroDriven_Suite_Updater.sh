@@ -328,9 +328,9 @@ function Update_Official {
 	#Run Official MiSTer Update Script
 
 	echo
-    echo "=========================================================================="
-    echo "                     Running Official MiSTer Updater                      "
-    echo "=========================================================================="
+    echo "================================================================"
+    echo "                Running Official MiSTer Updater                 "
+    echo "================================================================"
     echo
 	sleep 1
 
@@ -351,9 +351,9 @@ function Update_LLAPI {
 	#Run MiSTer LLAPI Update Script
 
 	echo
-    echo "=========================================================================="
-    echo "                       Running MiSTer LLAPI Updater                       "
-    echo "=========================================================================="
+    echo "================================================================"
+    echo "                  Running MiSTer LLAPI Updater                  "
+    echo "================================================================"
     echo
 	sleep 1
 
