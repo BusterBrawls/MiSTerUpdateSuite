@@ -14,6 +14,13 @@ The MiSTer Update Suite will give you a nice User Experience as well as an Auto 
 
 ![image](https://github.com/RetroDriven/MiSTerUpdateSuite/blob/master/DO%20NOT%20DOWNLOAD/Screenshot.png)
 
+## Full Auto Pilot Mode ##
+* If you'd like to run this Script in Full Auto Pilot Mode without using the GUI/Menu you can do so by editing the included <b>RetroDriven_Update_Suite.ini</b>
+
+![image](https://github.com/RetroDriven/MiSTerUpdateSuite/blob/master/DO%20NOT%20DOWNLOAD/INI_v1.3.png)
+
+* Simply set <b>SHOW_GUI="False"</b> and set any of the items below to <b>"True"</b> that you'd like to use
+
 ## Included Scripts ##
 1. <a href="https://github.com/RetroDriven/MiSTerMAME">RetroDriven MiSTerMAME</a> - This Script will Download/Update the required MAME ROMS as well Unofficial RBF Cores and MRA Files such as Jotego's Cores/MRAs
 2. <a href="https://github.com/RetroDriven/MiSTerWallpapers">RetroDriven MiSTerWallpapers</a> - This Script will Download/Update Wallpaper Artwork to be used on the MiSTer Menu
