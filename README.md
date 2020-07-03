@@ -5,7 +5,7 @@ The MiSTer Update Suite will give you a nice User Experience as well as an Auto 
 
 ## Script Download
 
-<a href="https://github.com/RetroDriven/MiSTerUpdateSuite/releases/download/1.2/RetroDriven_Update_Suite.sh"> Script Download </a>
+<a href="https://github.com/RetroDriven/MiSTerUpdateSuite/releases/download/1.3/RetroDriven_Update_Suite_v1.3.zip"> Script Download </a>
 
 ## Usage ##
 * Download the Script above and Copy <b>RetroDriven_Update_Suite.sh</b> to your Scripts Folder on your MiSTer SD Card(typically /media/fat/Scripts).
