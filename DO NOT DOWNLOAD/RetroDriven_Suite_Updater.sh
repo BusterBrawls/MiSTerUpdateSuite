@@ -16,14 +16,48 @@
 # Copyright 2019-2020 Alessandro "Locutus73" Miele
 # Copyright 2020 RetroDriven
 
+# Version 1.3 - 07/03/2020 - Added INI; Added Headless/No GUI Mode/Option 
 # Version 1.2 - 07/01/2020 - Added MiSTerBIOS Script to Optional Section
 # Version 1.1 - 06/15/2020 - Moved Wallpapers to Optional Section; Added Auto Pilot Mode Section ;Added Option to Run All Scripts to Auto Pilot Mode Section
 # Version 1.0 - 06/14/2020 - Initial Script Release
+
+
+#=========   USER OPTIONS   =========
+
+#True: Show the GUI/Menu
+#False: Skip the GUI/Menu and run on Auto Pilot Mode based on what you set to True below
+SHOW_GUI="True"
+
+#True: Run the RetroDriven MiSTerMAME SE Updater Script
+MISTER_MAME_UPDATER="False"
+
+#True: Run the Official MiSTer Updater Script
+OFFICIAL_UPDATER="False"
+
+#True: Run the RetroDriven Wallpapers Updater Script
+MISTER_WALLPAPERS_UPDATER="False"
+
+#True: Run the RetroDriven MiSTerBIOS Updater Script
+MISTER_BIOS_UPDATER="False"
+
+#True: Run the MiSTer LLAPI Updater Script
+LLAPI_UPDATER="False"
 
 # ========= CODE STARTS HERE =========
 
 ALLOW_INSECURE_SSL="true"
 DIALOG_HEIGHT="31"
+
+ORIGINAL_SCRIPT_PATH="$0"
+if [ "$ORIGINAL_SCRIPT_PATH" == "bash" ]
+then
+	ORIGINAL_SCRIPT_PATH=$(ps | grep "^ *$PPID " | grep -o "[^ ]*$")
+fi
+INI_PATH=${ORIGINAL_SCRIPT_PATH%.*}.ini
+if [ -f $INI_PATH ]
+then
+	eval "$(cat $INI_PATH | tr -d '\r')"
+fi
 
 function checkTERMINAL {
 #	if [ "$(uname -n)" != "MiSTer" ]
@@ -60,6 +94,23 @@ function setupINI {
 	curl -sL --insecure "https://github.com/RetroDriven/MiSTerBIOS/blob/master/Update_MiSTerBIOS.ini?raw=true" --output "Update_MiSTerBIOS.ini"
 	[ ! -f "Update_MiSTerBIOS.ini" ] && echo "Error Downloading MiSTerBIOS INI" && exit 1
 	fi
+	
+	#Main Script INI
+	if [ ! -f "RetroDriven_Update_Suite.ini" ];then
+	curl -sL --insecure "https://github.com/RetroDriven/MiSTerUpdateSuite/blob/master/RetroDriven_Update_Suite.ini?raw=true" --output "RetroDriven_Update_Suite.ini"
+	[ ! -f "RetroDriven_Update_Suite.ini" ] && echo "Error Downloading RetroDriven Update Suite.ini INI" && exit 1
+	fi
+
+}
+
+#Footer Function
+Footer(){
+clear
+echo
+echo "================================================================"
+echo "                      Updates Are Complete!                     "
+echo "================================================================"
+echo
 }
 
 function setupCURL
@@ -336,7 +387,7 @@ function Update_All_Optional {
 }
 
 #Menu Options
-DIALOG_TITLE="RetroDriven MiSTer Update Suite v1.2"
+DIALOG_TITLE="RetroDriven MiSTer Update Suite v1.3"
 function showPleaseWAIT {
 	${DIALOG} --title "${DIALOG_TITLE}" \
 	--infobox "Please wait..." 0 0
@@ -365,7 +416,9 @@ function showMainMENU {
 clear
 #checkTERMINAL
 setupINI
+if [ $SHOW_GUI == "True" ];then
 setupDIALOG
+fi
 
 while true; do
 	showMainMENU
@@ -411,6 +464,38 @@ while true; do
 	esac
 done
 
-clear
+#Headless Mode
+if [ $SHOW_GUI == "False" ];then
+
+if [ $MISTER_MAME_UPDATER == "True" ];then
+	MiSTerMAME
+fi
+
+if [ $MISTER_WALLPAPERS_UPDATER == "True" ];then
+	MiSTerWallpapers
+fi
+
+if [ $MISTER_BIOS_UPDATER == "True" ];then
+	MiSTerBIOS
+fi
+
+if [ $LLAPI_UPDATER == "True" ];then
+	Update_LLAPI
+fi
+
+if [ $OFFICIAL_UPDATER == "True" ];then
+	Update_Official
+fi
+
+fi
+
+#Display Footer
+
+if [ $SHOW_GUI == "False" ];then
+
+Footer
+echo "Downloaded Log Files are located here: /media/fat/Scripts/.RetroDriven/Logs"
+echo
+fi
 
 exit 0
